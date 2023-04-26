@@ -1,0 +1,22 @@
+{
+  "name": "desafiod4",
+  "version": "1.0.0",
+  "description": "api com funcao recursiva e iterativa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaluMSiza/DesafioD4.git"
+  },
+  "author": "Maria Luiza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaluMSiza/DesafioD4/issues"
+  },
+  "homepage": "https://github.com/MaluMSiza/DesafioD4#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

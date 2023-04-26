@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>DESAFIO</title>
+  </head>
+  <body>
+    <h1>DESAFIO</h1>
+    <label for="m">Limite Inferior (m):</label>
+    <input type="number" id="m" name="m"><br>
+
+    <label for="n">Limite Superior (n):</label>
+    <input type="number" id="n" name="n"><br>
+
+    <label for="tipoexecucao">Tipo de Execução:</label>
+    <select id="tipoexecucao" name="tipoexecucao">
+      <option value="iterativa">Iterativa</option>
+      <option value="recursiva">Recursiva</option>
+    </select><br>
+
+    <button onclick="calcularProdutorio()">Calcular</button>
+
+    <div id="resultado"></div>
+
+    <script>
+      function calcularProdutorio() {
+        const m = parseInt(document.getElementById("m").value);
+        const n = parseInt(document.getElementById("n").value);
+        const tipoexecucao = document.getElementById("tipoexecucao").value;
+
+        const data = { m: m, n: n, tipoexecucao: tipoexecucao };
+
+        fetch('/api/produtorio', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+          const resultadoDiv = document.getElementById('resultado');
+          resultadoDiv.innerHTML = `Resultado: ${result.resultado}`;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      }
+    </script>
+  </body>
+</html>
